@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MCEasyChat">
+    <output-path>$PROJECT_DIR$/out/artifacts/MCEasyChat</output-path>
+    <root id="archive" name="MCEasyChat.jar">
+      <element id="module-output" name="MC-Easy-Chat" />
+    </root>
+  </artifact>
+</component>

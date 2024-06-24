@@ -1,0 +1,22 @@
+name: build
+
+on:
+  release:
+    type: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Dode
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+      - name: Build With Maven
+        run: mvn install
+      - name: Upload JAR
+        run: actions/upload-artifact@v4
+        with:
+          path: ./target/*.jar
