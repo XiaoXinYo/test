@@ -1,4 +1,4 @@
-name: build
+name: Build
 
 on:
   release:
@@ -19,4 +19,5 @@ jobs:
       - name: Upload JAR
         run: actions/upload-artifact@v4
         with:
+          name: MCEasyChat
           path: ./target/*.jar
