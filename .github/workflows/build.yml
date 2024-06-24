@@ -2,7 +2,7 @@ name: Build
 
 on:
   release:
-    type: [published]
+    types: [published]
 
 jobs:
   build:
@@ -16,8 +16,9 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: Build With Maven
-        run: mvn install
+        run: mvn --batch-mode install
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
+          name: MC-Easy-Chat
           path: ./target/*.jar
