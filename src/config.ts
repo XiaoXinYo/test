@@ -3,6 +3,11 @@ interface Proxy {
     url: string;
 }
 
-let proxys: Proxy[] = []
+let proxys: Proxy[] = [
+{
+domain: "ep.h2oye.com",
+url: "https://www.google.com/"
+}
+]
 
 export default proxys;
