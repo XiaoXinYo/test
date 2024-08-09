@@ -1,7 +1,7 @@
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { ExceptionResponse, ExceptionResponseCode, Reponse } from './core';
-import config from './config';
+import { ExceptionResponse, ExceptionResponseCode, Reponse } from 'src/core';
+import config from 'src/config';
 
 const APP = express();
 
