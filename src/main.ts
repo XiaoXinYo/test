@@ -3,9 +3,9 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 import { ExceptionResponse, ExceptionResponseCode, Reponse } from './core';
 import config from './config';
 
-const APP = express();
+const app = express();
 
-APP.use((error, request, response, next) => {
+app.use((error, request, response, next) => {
     if (error instanceof ExceptionResponse) {
         return response.json(Reponse.error(error.code, error.message));
     }
@@ -13,7 +13,7 @@ APP.use((error, request, response, next) => {
     return response.status(500).json(Reponse.error(500, "未知错误"));
 });
 
-APP.use((request, response, next) => {
+app.use((request, response, next) => {
     let proxy = config.find(config => request.hostname.includes(config.domain));
     if (!proxy) {
         return createProxyMiddleware({
@@ -25,4 +25,4 @@ APP.use((request, response, next) => {
     }
 })
 
-APP.listen(370);
+app.listen(370);
